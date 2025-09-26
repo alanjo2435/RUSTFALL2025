@@ -1,4 +1,4 @@
-// Assignment 3: Simple Guessing Game
+// Assignment 3: Guessing Game
 fn check_guess(guess: i32, secret: i32) -> i32 {
     if guess == secret {
         0
