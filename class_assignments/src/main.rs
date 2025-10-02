@@ -13,12 +13,10 @@ impl Student{
 
     fn get_major(&self) -> &String{
         &self.major
-
     }
 
     fn set_major(& mut self, new_major:String){
         self.major = new_major;
-
     }
 
 }
