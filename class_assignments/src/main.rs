@@ -1,32 +1,35 @@
-fn concat_strings(s1: &String, s2: &String) -> String {
-    let mut result = String::new();
-    result.push_str(s1);
-    result.push_str(s2);
-    result
+struct Student{
+    name: String,
+    major: String,
 }
 
-fn clone_and_modify(s: &String) -> String {
-    let mut cloned = s.clone();
-    cloned.push_str("Garcia");
-    cloned
-}
-
-fn sum(total: &mut i32, low: i32, high: i32) {
-    for i in low..=high {
-        *total += i;
+impl Student{
+    fn new(n:String,m:String) -> Self {
+        Student{
+            name: n,
+            major: m,
+        }
     }
+
+    fn get_major(&self) -> &String{
+        &self.major
+
+    }
+
+    fn set_major(& mut self, new_major:String){
+        self.major = new_major;
+
+    }
+
 }
 
-fn main() {
-    let a = String::from("Alan ");
-    let b = String::from("Garcia");
-    println!("{}", concat_strings(&a, &b));
+fn main(){
+    let mut my_student = Student::new("Alan".to_string(), "Computer Engineering".to_string());
 
-    let c = String::from("Alan ");
-    println!("{}", clone_and_modify(&c));
-    println!("{}", c);
+    println!("My Name is {}", my_student.name);
+    println!("My major is {}", my_student.get_major());
 
-    let mut total = 1;
-    sum(&mut total, 1, 50);
-    println!("{}", total);
+    my_student.set_major("Electrical Engineering".to_string());
+    println!("My minor is {}", my_student.get_major());
+
 }
